@@ -1,9 +1,17 @@
-﻿image: gitpod/workspace-java-17
+image: gitpod/workspace-java-17
 
 tasks:
-  - init: mvn clean install
+  - init: mvn clean install -DskipTests
   - command: mvn spring-boot:run -Dspring-boot.run.profiles=gitpod
 
 ports:
   - port: 8080
     onOpen: open-preview
+    visibility: public
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - vmware.vscode-spring-boot
+    - Pivotal.vscode-spring-boot
+    - redhat.java
